@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        height: 100px;
+        background-color: #0a214c;
+      }
+      .left-section {
+        display: flex;
+        align-items: center;
+        padding-left: 90px;
+        width: 200px;
+        padding-right: 10px;
+      }
+      .painless {
+        border: none;
+        height: 90px;
+        width: 90px;
+        border-radius: 45px;
+      }
+
+      .middle-section {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        flex: 1;
+        max-width: 900px;
+      }
+
+      .right-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+      }
+
+      .search-box {
+        border: none;
+        height: 33px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        flex: 1;
+
+        max-width: 800px;
+      }
+
+      .search-box::placeholder {
+        padding-left: 8px;
+      }
+      .search-button {
+        border: none;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        width: 50px;
+        height: 35px;
+
+        cursor: pointer;
+      }
+      .search-icon {
+        width: 26px;
+      }
+      .returns-link {
+        text-decoration: none;
+        color: white;
+      }
+
+      .returns-text {
+        display: block;
+      }
+
+      .amazon-logo {
+        width: 100px;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+      }
+      .products-container {
+        border-right: 1px solid rgb(231, 226, 226);
+        border-bottom: 1px solid rgb(235, 226, 226);
+        padding-left: 55px;
+        padding-right: 55px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+      }
+      .products-images {
+        width: 180px;
+      }
+
+      .products-image {
+        border-radius: 10px;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .rating {
+        margin-bottom: 15px;
+      }
+
+      .text {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .rating {
+        display: flex;
+        align-items: center;
+      }
+
+      .rating-img {
+        width: 110px;
+        margin-top: 10px;
+      }
+
+      .price {
+        margin-bottom: 10px;
+      }
+
+      .option {
+        margin-bottom: 10px;
+      }
+
+      .add-to-cart-button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-section">
+        <img class="painless" src="/images/painless.jpg" alt="" />
+      </div>
+      <div class="middle-section">
+        <input class="search-box" placeholder="Search" />
+        <button class="search-button">
+          <img class="search-icon" src="/images/icons/search-icon.png" alt="" />
+        </button>
+      </div>
+      <div class="right-section">
+        <a class="returns-link" href="">
+          <span class="returns-text">Returns</span>
+          <span class="orders-text">& Orders</span>
+        </a>
+        <img class="cart-icon" src="/images/icons/cart-icon.png" alt="" />
+        <span>Cart</span>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <div class="products-container">
+        <div class="products-images">
+          <img class="products-image" src="/images/rcb.jpg" alt="" />
+        </div>
+        <div class="text">RCB Embroidered Logo</div>
+        <div class="rating">
+          <img class="rating-img" src="/images/ratings/rating-45.png" alt="" />
+        </div>
+        <div class="price">$10.90</div>
+        <div class="option">
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="add-to-cart"><button>Add to Cart</button></div>
+      </div>
+
+      <div class="products-container">
+        <div class="products-images">
+          <img class="products-image" src="/images/csk.jpg" alt="" />
+        </div>
+        <div class="text">CSK Embroidered Logo</div>
+
+        <div class="rating">
+          <img class="rating-img" src="/images/ratings/rating-40.png" alt="" />
+        </div>
+        <div class="price">$20.95</div>
+        <div class="option">
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="add-to-cart"><button>Add to Cart</button></div>
+      </div>
+
+      <div class="products-container">
+        <div class="products-images">
+          <img class="products-image" src="/images/glass.jpg" alt="" />
+        </div>
+        <div class="text">Glass Person lol</div>
+
+        <div class="rating">
+          <div>
+            <img
+              class="rating-img"
+              src="/images/ratings/rating-45.png"
+              alt=""
+            />
+          </div>
+          <div>87</div>
+        </div>
+        <div class="price">$7.99</div>
+        <div class="option">
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="add-to-cart">
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
