@@ -1,5 +1,5 @@
 .amazon-header {
-  background-color: #0a214c;
+  background-color: black;
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -41,8 +41,8 @@
 .amazon-logo {
   width: 90px;
   margin-top: 5px;
-  border-radius: 45px;
-  margin-left: 40px;
+
+  margin-left: 20px;
 }
 
 .amazon-mobile-logo {
