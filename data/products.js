@@ -469,4 +469,27 @@ export const products = [
     priceCents: 2400,
     keywords: ["sweaters", "hoodies", "apparel", "mens"],
   },
+  {
+    id: "id1",
+    image: "images/products/backpack.jpg",
+    name: "Men's Backpack for Trekking",
+    rating: {
+      stars: 40,
+      count: 1800,
+    },
+    priceCents: 1200,
+    keywords: ["backpack", "bag", "trekking bag"],
+  },
+
+  {
+    id: "id2",
+    image: "images/products/umbrella.jpg",
+    name: "Sweet and Protective Umbrella",
+    rating: {
+      stars: 45,
+      count: 100,
+    },
+    priceCents: 800,
+    keywords: ["umbrella", "rain", "protection"],
+  },
 ];
