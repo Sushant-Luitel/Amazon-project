@@ -1,6 +1,11 @@
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
-import { calculateCartQuantity, cart, deleteFromCart } from "../data/cart.js";
+import {
+  calculateCartQuantity,
+  cart,
+  deleteFromCart,
+  updateQuantity,
+} from "../data/cart.js";
 
 let cartSummaryHTML = "";
 
@@ -33,16 +38,18 @@ cart.forEach((cartItem) => {
       matchingProduct.priceCents
     )}</div>
     <div class="product-quantity">
-      <span class="quantity-text"> Quantity: <span class="quantity-label">${
-        cartItem.quantity
-      }</span> </span>
+      <span class="quantity-text"> Quantity: <span class="quantity-label js-quantity-label-${
+        matchingProduct.id
+      }">${cartItem.quantity}</span> </span>
       <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id='${
         matchingProduct.id
       }'>
         Update
-      </span><input class="quantity-input"></input><span class="save-quantity-link link-primary" data-product-id='${
+      </span><input class="quantity-input js-quantity-input-${
         matchingProduct.id
-      }'>Save</span>
+      }"></input><span class="save-quantity-link link-primary" data-product-id='${
+    matchingProduct.id
+  }'>Save</span>
       <span class="delete-quantity-link link-primary js-delete-link" data-product-id='${
         matchingProduct.id
       }'>
@@ -125,8 +132,74 @@ document.querySelectorAll(".save-quantity-link").forEach((link) => {
       `.cart-item-container-${productId}`
     );
     container.classList.remove("is-editing-quantity");
+
+    const inputElement = document.querySelector(
+      `.js-quantity-input-${productId}`
+    );
+    const newQuantity = Number(inputElement.value);
+
+    updateQuantityAndUI(productId, newQuantity);
+  });
+
+  // Add keypress event listener to the input field
+  const inputElement = document.querySelector(
+    `.js-quantity-input-${link.dataset.productId}`
+  );
+  inputElement.addEventListener("keypress", (event) => {
+    // Check if the pressed key is Enter (key code 13)
+    if (event.key === "Enter") {
+      const productId = link.dataset.productId;
+      const newQuantity = Number(inputElement.value);
+      const container = document.querySelector(
+        `.cart-item-container-${productId}`
+      );
+      container.classList.remove("is-editing-quantity");
+      updateQuantityAndUI(productId, newQuantity);
+    }
   });
 });
+
+function updateQuantityAndUI(productId, newQuantity) {
+  if (newQuantity >= 0 && newQuantity <= 100) {
+    updateQuantity(productId, newQuantity);
+
+    const quantityLabel = document.querySelector(
+      `.js-quantity-label-${productId}`
+    );
+    quantityLabel.innerHTML = newQuantity;
+
+    updateCartQuantity();
+  } else {
+    alert("Value must be between 0-100");
+  }
+}
+
+// document.querySelectorAll(".save-quantity-link").forEach((link) => {
+//   link.addEventListener("click", () => {
+//     const productId = link.dataset.productId;
+//     const container = document.querySelector(
+//       `.cart-item-container-${productId}`
+//     );
+//     container.classList.remove("is-editing-quantity");
+//     const inputElement = document.querySelector(
+//       `.js-quantity-input-${productId}`
+//     );
+
+//     const newQuantity = Number(inputElement.value);
+
+//     if (newQuantity >= 0 && newQuantity <= 100) {
+//       updateQuantity(productId, newQuantity);
+
+//       const quantityLabel = document.querySelector(
+//         `.js-quantity-label-${productId}`
+//       );
+//       quantityLabel.innerHTML = newQuantity;
+//       updateCartQuantity();
+//     } else {
+//       alert("!!Value must be between 0-100");
+//     }
+//   });
+// });
 
 function updateCartQuantity() {
   // let cartQuantity = 0;
