@@ -1,6 +1,6 @@
 // JSON.parse(localStorage.getItem("cart")) ||export let cart =  [
 
-export let cart = JSON.parse(localStorage.getItem("cartQT")) || [
+export let cart = JSON.parse(localStorage.getItem("cartsave")) || [
   {
     productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     quantity: 2,
@@ -14,7 +14,7 @@ export let cart = JSON.parse(localStorage.getItem("cartQT")) || [
 ];
 
 function saveToLocalStorage() {
-  localStorage.setItem("cartQT", JSON.stringify(cart));
+  localStorage.setItem("cartsave", JSON.stringify(cart));
 }
 
 export function addToCart(productId) {
