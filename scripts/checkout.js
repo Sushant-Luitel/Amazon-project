@@ -22,15 +22,15 @@ cart.forEach((cartItem) => {
   });
 
   const deliveryOptionId = cartItem.deliveryOptionId;
-  let deliveryOption;
+  let DeliveryOption;
   deliveryOptions.forEach((option) => {
     if (option.deliveryId === deliveryOptionId) {
-      deliveryOption = option;
+      DeliveryOption = option;
     }
   });
 
   const today = dayjs();
-  const deliveryDate = today.add(deliveryOption.deliveryDays, "day");
+  const deliveryDate = today.add(DeliveryOption.deliveryDays, "day");
   const dateString = deliveryDate.format("dddd, MMMM D");
 
   cartSummaryHTML += `<div class="cart-item-container cart-item-container-${
