@@ -28,10 +28,9 @@ cart.forEach((cartItem) => {
       deliveryOption = option;
     }
   });
-
   const today = dayjs();
 
-  const deliveryDate = today.add(5, "day");
+  const deliveryDate = today.add(deliveryOption.deliveryDays, "day");
   const dateString = deliveryDate.format("dddd, MMMM D");
 
   cartSummaryHTML += `<div class="cart-item-container cart-item-container-${
