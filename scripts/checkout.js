@@ -9,7 +9,6 @@ import {
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import deliveryOptions from "../data/deliveryOptions.js";
 
-dayjs();
 let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
@@ -22,24 +21,24 @@ cart.forEach((cartItem) => {
     }
   });
 
-  const deliveryOptionId = cartItem.deliveryOptionId;
-  let deliveryOption;
+  // const deliveryOptionId = cartItem.deliveryOptionId;
+  // let deliveryOption;
 
-  deliveryOptions.forEach((option) => {
-    if (option.id === deliveryOptionId) {
-      deliveryOption = option;
-    }
-  });
+  // deliveryOptions.forEach((option) => {
+  //   if (option.id === deliveryOptionId) {
+  //     deliveryOption = option;
+  //   }
+  // });
 
-  const today = dayjs();
+  // const today = dayjs();
 
-  const deliveryDate = today.add(deliveryOption?.deliveryDays || "1", "day");
-  const dateString = deliveryDate.format("dddd, MMMM D");
+  // const deliveryDate = today.add(deliveryOption?.deliveryDays || "1", "day");
+  // const dateString = deliveryDate.format("dddd, MMMM D");
 
   cartSummaryHTML += `<div class="cart-item-container cart-item-container-${
     matchingProduct.id
   }">
-<div class="delivery-date">Delivery date: ${dateString}</div>
+<div class="delivery-date">Delivery date: </div>
 
 <div class="cart-item-details-grid">
   <img
