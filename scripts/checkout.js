@@ -24,12 +24,11 @@ cart.forEach((cartItem) => {
   const deliveryOptionId = cartItem.deliveryOptionId;
   let deliveryOption;
   deliveryOptions.forEach((option) => {
-    if (option.deliveryId === deliveryOptionId) {
+    if (String(option.id) === String(deliveryOptionId)) {
       deliveryOption = option;
     }
   });
   const today = dayjs();
-
   const deliveryDate = today.add(deliveryOption.deliveryDays, "day");
   const dateString = deliveryDate.format("dddd, MMMM D");
 
@@ -95,7 +94,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
         : "$" + formatCurrency(deliveryOption.priceCents);
 
     const isChecked =
-      deliveryOption.deliveryId === cartItem.deliveryOptionId ? "checked" : "";
+      deliveryOption.id === cartItem.deliveryOptionId ? "checked" : "";
 
     html += `   <div class="delivery-option">
   <input
