@@ -160,6 +160,9 @@ export function renderOrderSummary() {
       const newQuantity = Number(inputElement.value);
 
       updateQuantityAndUI(productId, newQuantity);
+      renderCheckoutHeader();
+      renderOrderSummary();
+      renderPaymentSummary();
     });
 
     // Add keypress event listener to the input field
@@ -176,6 +179,9 @@ export function renderOrderSummary() {
         );
         container.classList.remove("is-editing-quantity");
         updateQuantityAndUI(productId, newQuantity);
+        renderCheckoutHeader();
+        renderOrderSummary();
+        renderPaymentSummary();
       }
     });
   });
