@@ -160,7 +160,7 @@ export function renderOrderSummary() {
       const newQuantity = Number(inputElement.value);
 
       updateQuantityAndUI(productId, newQuantity);
-      renderCheckoutHeader();
+
       renderOrderSummary();
       renderPaymentSummary();
     });
@@ -179,7 +179,7 @@ export function renderOrderSummary() {
         );
         container.classList.remove("is-editing-quantity");
         updateQuantityAndUI(productId, newQuantity);
-        renderCheckoutHeader();
+
         renderOrderSummary();
         renderPaymentSummary();
       }
@@ -189,11 +189,7 @@ export function renderOrderSummary() {
   function updateQuantityAndUI(productId, newQuantity) {
     if (newQuantity >= 0 && newQuantity <= 100) {
       updateQuantity(productId, newQuantity);
-
-      const quantityLabel = document.querySelector(
-        `.js-quantity-label-${productId}`
-      );
-      quantityLabel.innerHTML = newQuantity;
+      renderCheckoutHeader();
     } else {
       alert("Value must be between 0-100");
     }
